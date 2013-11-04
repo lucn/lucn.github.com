@@ -5,7 +5,7 @@ tags : [DotNet, Deadlock, Debugging]
 ---
 {% include JB/setup %}
 
-前段时间在生产环境中遇到一个.Net程序[死锁](http://zh.wikipedia.org/wiki/%E6%AD%BB%E9%94%81)的问题，IIS的应用程序池在回收以后偶尔会出现不响应所有请求的情况。通过调试最后发现一个死锁问题造成的。
+前段时间在生产环境中遇到一个.Net程序[死锁](http://zh.wikipedia.org/wiki/%E6%AD%BB%E9%94%81)的问题，IIS的应用程序池在回收以后偶尔会出现不响应所有请求的情况，通过调试最后发现一个死锁问题造成的。
 
 
 ## 调试过程
