@@ -5,12 +5,12 @@ tags : [DotNet, Deadlock, Debugging]
 ---
 {% include JB/setup %}
 
-前段时间在生产环境中遇到一个.Net程序[死锁](http://zh.wikipedia.org/wiki/%E6%AD%BB%E9%94%81)的问题，IIS的应用程序池在回收以后偶尔会出现不响应所有请求的情况，通过调试最后发现一个死锁问题造成的。
+前段时间在生产环境中遇到一个.Net程序[死锁](http://zh.wikipedia.org/wiki/%E6%AD%BB%E9%94%81)的问题，IIS的应用程序池在回收以后偶尔会出现不响应所有请求的情况，通过调试最后发现是一个死锁造成的。
 
 
 ## 调试过程
 
-死锁是由两个以上的线程互相等待对方释放资源引起的，死锁相对其它Bug而言比较隐晦，调试也比较困难。死锁一般在并发环境中才会出现，在开发环境里很难复现，在生产环境中又无法向进行单步调试。因此，抓取Dump文件，然后用Windug分析是一个不错的方法。在Windug中调试.Net程序需要[SOS调试扩展(SOS.dll)](http://msdn.microsoft.com/zh-cn/library/bb190764(v=vs.110\).aspx)。SOS.dll在.NET Framework的安装目录中可以找到，不同的.Net版本对应不同的SOS.dll。
+死锁是由两个以上的线程互相等待对方释放资源引起的，死锁相对其它Bug而言比较隐晦，调试也比较困难。死锁一般在并发环境中才会出现，在开发环境里很难复现，在生产环境中又无法向进行单步调试。因此，抓取Dump文件，然后用WinDbg分析是一个不错的方法。在WinDbg中调试.Net程序需要[SOS调试扩展(SOS.dll)](http://msdn.microsoft.com/zh-cn/library/bb190764(v=vs.110\).aspx)。SOS.dll在.NET Framework的安装目录中可以找到，不同的.Net版本对应不同的SOS.dll。
 
 首先确定程序使用的.Net版本，加载SOS.dll。
 
